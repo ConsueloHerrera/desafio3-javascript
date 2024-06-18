@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <div
+      id="key"
+      style="
+        height: 200px;
+        width: 200px;
+        background-color: white;
+        border: 2px solid;
+        border-color: black;
+      "></div>
+
+    <script>
+      function cambiarColor(event) {
+        let colorFinal = "";
+
+        const tecla = event.key;
+
+        if (tecla === "a") {
+          colorFinal = "pink";
+        } else if (tecla === "s") {
+          colorFinal = "orange";
+        } else if (tecla === "d") {
+          colorFinal = "lightblue";
+        }
+
+        document.getElementById("key").style.backgroundColor = colorFinal;
+      }
+
+      function crearDiv(color) {
+        const nuevoDiv = document.createElement("div");
+        nuevoDiv.style.width = "200px";
+        nuevoDiv.style.height = "200px";
+        nuevoDiv.style.backgroundColor = color;
+        nuevoDiv.style.border = "2px solid black";
+
+        document.body.appendChild(nuevoDiv);
+      }
+
+      function cambiarColorNuevoDiv(event) {
+        const tecla = event.key;
+
+        if (tecla === "q") {
+          crearDiv("purple");
+        } else if (tecla === "w") {
+          crearDiv("gray");
+        } else if (tecla === "e") {
+          crearDiv("brown");
+        }
+      }
+
+      document.addEventListener("keydown", cambiarColor);
+
+      document.addEventListener("keydown", cambiarColorNuevoDiv);
+    </script>
+  </body>
+</html>
